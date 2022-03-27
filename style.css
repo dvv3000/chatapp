@@ -42,8 +42,7 @@ body {
 }
 
 
-
-.error-mess {
+.active {
     color: red;
     text-align: center;
     margin: 10px 0px;
