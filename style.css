@@ -42,7 +42,7 @@ body {
 }
 
 
-.active {
+.error {
     color: red;
     text-align: center;
     margin: 10px 0px;
@@ -157,6 +157,7 @@ body {
     padding: 10px 35px;
 }
 
+
 .user-list {
     max-height: 400px;
     overflow-y: auto;   
@@ -186,10 +187,12 @@ body {
     font-size: 15px;
 }
 
-.user-list a .status-dot{
-    font-size: 12px;
+.online{
     color: #468669;
+}
 
+.offline {
+    color: gray;
 }
 
 .user-list .username {
@@ -244,8 +247,13 @@ body {
     border-radius: 10px 10px 0 10px;
 }
 
+.outgoing .text {
+    text-align: right;
+}
+
 .incoming {
     display: flex;
+    justify-content: space-between;
 }
 
 .incoming img {
@@ -261,13 +269,13 @@ body {
     border-radius: 10px 10px 10px 0;
 }
 
-.chat-area .typing-area {
+.chat-area .message {
     padding: 10px 0px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
 
-.typing-area input {
+.message input {
     height: 40px;
     width: 85%;
     font-size: 15px;
@@ -278,7 +286,7 @@ body {
     border: 1px solid #ccc;
 }
 
-.typing-area button{
+.message button{
     width: 35px;
     border: none;
     outline: none;

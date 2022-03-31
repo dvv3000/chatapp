@@ -34,7 +34,7 @@ form.onsubmit = (e) => {
                 }
                 else{
                     error.textContent = xhr.response
-                    error.classList.add('active')
+                    error.classList.add('error')
                 }
             }
         }

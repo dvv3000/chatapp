@@ -4,6 +4,7 @@ let inputSearchElement = document.querySelector('.search-txt')
 let searchElement = document.querySelector('.search')
 
 
+
 function getUserList() {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', 'php/getUsers.php', true);
@@ -11,7 +12,11 @@ function getUserList() {
     xhr.onload = () => {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
-                userListElement.innerHTML = xhr.response      
+                userListElement.innerHTML = xhr.response
+                // console.log(5);      
+            }
+            else{
+                console.log(xhr.response)
             }
         }
     }
@@ -27,7 +32,7 @@ inputSearchElement.onkeyup = (e) => {
     data = inputSearchElement.value.trim()
 
     if(data === ''){
-        userListElement.classList.remove('active')
+        searchElement.classList.remove('active')
     }
     else {
         searchElement.classList.add('active')
@@ -39,6 +44,7 @@ inputSearchElement.onkeyup = (e) => {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
                 userListElement.innerHTML = xhr.response  
+                // console.log(xhr.response)
             }
         }
     }
@@ -47,5 +53,6 @@ inputSearchElement.onkeyup = (e) => {
 }
 
 if (!searchElement.classList.contains('active')){
-    setInterval(getUserList, 3000);
+    setInterval(getUserList, 500);
 }
+

@@ -3,6 +3,7 @@
     include_once './php/config.php';
     if (!isset($_SESSION['uniqueId'])){
         header('Location: ./login.php');
+        // echo "lol";
     }
 
     $usersql = mysqli_query($conn, "SELECT * FROM users WHERE uniqueId = {$_SESSION['uniqueId']}");
@@ -31,13 +32,12 @@
                     <div class="username"><?php echo $user['name'];?></div>
                     <span class="status">
                         <?php
-                            $result = $user['status'] === '1' ? 'Online' : 'Offline';
-                            echo ($result);
+                            echo $user['status'];
                         ?>
                     </span>
                 </div>
         
-                <a href="#" class="logout">Logout</a>
+                <a href="./php/logout.php" class="logout">Logout</a>
             </header>
     
             <div class="search">
@@ -47,11 +47,12 @@
             </div>
     
             <div class="user-list">
-
+                
             </div>           
   
     </div>
 
     <script src="./javascript/users.js"></script>
+    
 </body>
 </html>

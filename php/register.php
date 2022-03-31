@@ -32,9 +32,9 @@
             if(move_uploaded_file($tempName, '../images/'.$newImgName)) {
                 $randId = rand(time(), 1000000);
                 $encrypt_pass = md5($password);
-                $status = 1;
+                $status = 'online';
                 $insert = "INSERT INTO users (uniqueId, email, name, password, imgPath, status) 
-                            VALUES ($randId, '${email}', '${name}', '${encrypt_pass}', '${newImgName}', $status)";
+                            VALUES ($randId, '${email}', '${name}', '${encrypt_pass}', '${newImgName}', '{$status}')";
                 // die($insert);
 
                 $insertResult = mysqli_query($conn, $insert);
@@ -44,7 +44,7 @@
                     $selectResult = mysqli_query($conn, $select);
                     if (mysqli_num_rows($selectResult) === 1) {
                         $row = mysqli_fetch_assoc($selectResult);
-                        $_SESSION['uniqueID'] = $row['uniqueId'];
+                        $_SESSION['uniqueId'] = $row['uniqueId'];
                         return "success";
                     }
                     else{

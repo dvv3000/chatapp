@@ -23,10 +23,10 @@ function isValidatedFile(data) {
 email.onchange = (e) => {
     error.textContent = isEmail(e.target.value)
     if(isEmail(e.target.value)){
-        error.classList.add('active')
+        error.classList.add('error')
     }
     else{
-        error.classList.remove('active')
+        error.classList.remove('error')
     }
     
 }
@@ -34,11 +34,11 @@ email.onchange = (e) => {
 cfPassword.onchange = (e) => {
     if(password.value != e.target.value) {
         error.textContent = 'Confirm password failed!'
-        error.classList.add('active')
+        error.classList.add('error')
     }
     else{
         error.textContent = undefined
-        error.classList.remove('active')
+        error.classList.remove('error')
     }
     
 }
@@ -46,10 +46,10 @@ cfPassword.onchange = (e) => {
 file.onchange = (e) => {
     error.textContent = isValidatedFile(e.target.value)
     if(isValidatedFile(e.target.value)){
-        error.classList.add('active')
+        error.classList.add('error')
     }
     else{
-        error.classList.remove('active')
+        error.classList.remove('error')
     }
 }
 
@@ -67,7 +67,7 @@ form.onsubmit = (e) => {
                 }
                 else{
                     error.textContent = xhr.response
-                    error.classList.add('active')
+                    error.classList.add('error')
                 }
             }
         }

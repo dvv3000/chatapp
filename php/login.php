@@ -15,8 +15,8 @@
             // die();
             $encrypt_pass = md5($password);
             if($encrypt_pass === $row['password']){
-                $status = 1;
-                $setStatus = "UPDATE users SET status = ${status} WHERE uniqueId = ${row['uniqueId']}";
+                $status = 'online';
+                $setStatus = "UPDATE users SET status = '${status}' WHERE uniqueId = ${row['uniqueId']}";
                 $resultSetStatus = mysqli_query($conn, $setStatus);
 
                 if($resultSetStatus) {

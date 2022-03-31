@@ -11,14 +11,14 @@
     }
     else {
         while($row = mysqli_fetch_assoc($sql)) {
-            $output .= ' <a href=\"\">
+            $output .= ' <a href="./chat.php?id=' . $row['id'] . '">
                             <div class="user">
                                 <img src="./images/'. $row["imgPath"]. '" alt="">
                                 <div class="details">
                                     <div class="username">' . $row['name'] . '</div>
                                     <span class="message">This is a messsage</span>
                                 </div>
-                                <div class="status-dot">
+                                <div class="status-dot ' . $row['status']. '">
                                     <i class="bx bxs-circle"></i>
                                 </div>
                             </div>
